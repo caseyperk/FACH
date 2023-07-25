@@ -1,63 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Children's Hospitals Association</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-  <nav>
-    <div class="logo">
-      <!-- Your logo image goes here -->
-      <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Logo">
-    </div>
-    <div class="menu-icon">
-      <!-- Unicode character for the hamburger icon -->
-      ☰
-    </div>
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav>
+      <div class="logo">
+        <!-- Your logo image goes here -->
+        <img src="path/to/your-logo.png" alt="Logo">
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <!-- Unicode character for the hamburger icon -->
+        ☰
+      </div>
+      <ul class="menu" id="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main>
     <!-- Your main content goes here -->
-    <section id="home">
-      <h1>Welcome to Children's Hospitals Association</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
-    </section>
-
-    <section id="about">
-      <h2>About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
-    </section>
-
-    <section id="data">
-      <h2>Data Visualizations</h2>
-      <!-- Your data visualizations go here -->
-      <!-- You can use JavaScript and data visualization libraries -->
-    </section>
-
-    <section id="stories">
-      <h2>Data Stories</h2>
-      <!-- Your data stories go here -->
-      <!-- You can use text, images, and other media to tell stories -->
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <!-- Your contact form or contact details go here -->
-    </section>
+    <h1>Welcome to Children's Hospitals Association</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
   </main>
 
   <footer>
-    <p>&copy; 2023 Children's Hospitals Association. All rights reserved.</p>
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
   </footer>
 
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
