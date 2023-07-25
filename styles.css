@@ -25,14 +25,26 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+}
+
+.logo {
+  flex: 1; /* Make the logo expand to fill the available space */
+  display: flex;
+  justify-content: center; /* Horizontally center the logo */
+  align-items: center; /* Vertically center the logo */
 }
 
 .logo img {
-  width: 150px; /* Adjust the size as needed */
+  width: 100%; /* Make the logo responsive to its container */
+  max-width: 200px; /* Set a maximum width for the logo */
 }
 
 .menu {
   list-style: none;
+  flex: 1; /* Make the menu expand to fill the available space */
+  display: flex;
+  justify-content: flex-end; /* Align the menu to the right */
 }
 
 .menu li {
