@@ -16,13 +16,20 @@ body {
   padding: 20px;
 }
 
+header {
+  background-color: #333;
+  color: #fff;
+}
+
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
 }
 
 .logo {
+  flex: 1; /* Make the logo expand to fill the available space */
   display: flex;
   align-items: center; /* Vertically center the logo */
 }
@@ -34,11 +41,11 @@ header nav {
 
 .menu {
   list-style: none;
+  flex: 1; /* Make the menu expand to fill the available space */
   display: flex;
 }
 
 /* Move the logo to the top left */
-
 .menu li:first-child {
   margin-right: auto;
 }
@@ -46,6 +53,10 @@ header nav {
 .menu li {
   display: inline-block;
   margin-left: 20px;
+}
+
+.menu li:first-child {
+  margin-left: 0;
 }
 
 .menu li a {
