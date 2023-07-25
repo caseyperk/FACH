@@ -69,6 +69,7 @@ header nav {
 
 .menu li a:hover {
   background-color: #555;
+  color: #fff
 }
 
 main {
