@@ -50,34 +50,20 @@ header nav {
 /* Hamburger menu styles for smaller screens */
 .menu {
   flex-direction: column; /* Stack the menu items vertically */
+  display: none; /* Hide the full menu by default */
 }
 
 .menu li {
   margin: 10px 0; /* Add spacing between the menu items */
 }
 
-/* Show the menu items on small screens */
-@media screen and (max-width: 768px) {
-  .menu:not(.show) {
-    display: none; /* Hide the full menu by default */
-  }
-
-  .menu-icon {
-    display: block; /* Show the hamburger icon */
-    cursor: pointer; /* Add a cursor pointer to indicate interactivity */
-  }
-
-  .menu-icon img {
-    width: 30px; /* Set the width of the hamburger icon */
-  }
+/* Show the menu items on small screens when the 'show' class is applied */
+.menu.show {
+  display: flex;
 }
 
 /* Show the full menu on larger screens */
 @media screen and (min-width: 769px) {
-  .menu-icon {
-    display: none; /* Hide the hamburger icon */
-  }
-
   .menu {
     flex-direction: row; /* Revert to horizontal layout */
   }
