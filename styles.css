@@ -58,11 +58,10 @@ header nav {
 
 /* Show the menu items on small screens */
 @media screen and (max-width: 768px) {
-  .menu {
-    display: none; /* Hide the full menu */
+  .menu:not(.show) {
+    display: none; /* Hide the full menu by default */
   }
 
-  /* Show the hamburger icon on small screens */
   .menu-icon {
     display: block; /* Show the hamburger icon */
     cursor: pointer; /* Add a cursor pointer to indicate interactivity */
