@@ -54,22 +54,42 @@ header nav {
 
 .menu li {
   margin: 10px 0; /* Add spacing between the menu items */
-  display: none; /* Hide the menu items by default */
 }
 
 /* Show the menu items on small screens */
 @media screen and (max-width: 768px) {
   .menu {
+    display: none; /* Hide the full menu */
+  }
+
+  /* Show the hamburger icon on small screens */
+  .menu-icon {
+    display: block; /* Show the hamburger icon */
+    cursor: pointer; /* Add a cursor pointer to indicate interactivity */
+  }
+
+  .menu-icon img {
+    width: 30px; /* Set the width of the hamburger icon */
+  }
+}
+
+/* Show the full menu on larger screens */
+@media screen and (min-width: 769px) {
+  .menu-icon {
+    display: none; /* Hide the hamburger icon */
+  }
+
+  .menu {
     flex-direction: row; /* Revert to horizontal layout */
   }
-  
+
   .menu li {
-    margin: 0; /* Reset the margin for horizontal layout */
+    margin: 0 20px; /* Reset the margin for horizontal layout */
     display: block; /* Show the menu items */
   }
-  
+
   .menu li:first-child {
-    margin-right: auto; /* Align the logo to the left */
+    margin-left: 0; /* Align the logo to the left */
   }
 }
 
