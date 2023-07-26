@@ -55,7 +55,7 @@ header nav {
 
   /* Show the full menu on larger screens */
   .menu {
-    flex-direction: row; /* Revert to horizontal layout */
+    flex-direction: column; /* Revert to horizontal layout */
   }
 
   .menu li {
