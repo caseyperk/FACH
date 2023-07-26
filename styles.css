@@ -118,6 +118,10 @@ header nav {
     list-style: none;
   }
 
+  .menu li {
+    margin: 10px;
+  }
+
   /* ... (rest of the previously defined styles) ... */
 }
 
