@@ -71,6 +71,20 @@ header nav {
   background-color: #555;
 }
 
+/* Show the close icon on smaller screens */
+.close-icon {
+  font-size: 30px; /* Adjust the font size for the close icon */
+  cursor: pointer; /* Add cursor pointer to indicate interactivity */
+  display: none; /* Hide the close icon by default */
+}
+
+/* Show the full menu when the hamburger icon is clicked */
+.menu.show {
+  opacity: 1; /* Show the menu items */
+  display: flex; /* Ensure the menu items are visible */
+  flex-direction: column; /* Stack menu items vertically */
+}
+
 /* Show the hamburger icon on smaller screens */
 @media screen and (max-width: 768px) {
   .menu-icon {
@@ -80,19 +94,32 @@ header nav {
     display: block; /* Show the hamburger icon on mobile */
   }
 
+  /* Show the close icon when the menu is active */
+  .menu.show .close-icon {
+    display: block;
+  }
+
   .menu {
     list-style: none;
-    flex-direction: column;
     display: none;
+    position: absolute; /* Position the menu off-screen initially */
+    top: 0;
+    right: -100%; /* Move the menu off-screen to the right */
+    width: 70%; /* Set the width of the menu box */
+    max-width: 300px; /* Set a maximum width for the menu box */
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: right 0.3s ease; /* Add a smooth transition effect */
   }
 
   /* Show the full menu when the hamburger icon is clicked */
   .menu.show {
-    display: flex;
+    right: 0; /* Slide in the menu box from the right */
   }
 
   .menu li {
-    margin: 10px 0;
+    margin: 10px 0; /* Add spacing between the menu items on mobile */
   }
 }
 
