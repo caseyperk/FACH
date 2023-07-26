@@ -35,8 +35,14 @@ header nav {
 }
 
 .logo img {
-  width: 100%; /* Make the logo responsive to its container */
-  max-width: 200px; /* Set a maximum width for the logo */
+  width: 200px; /* Adjust the logo width as desired */
+  height: auto; /* Let the height adjust proportionally to the width */
+  max-width: 100%; /* Ensure the logo doesn't exceed its container width */
+}
+
+.menu-icon {
+  font-size: 30px; /* Adjust the font size to change the hamburger icon size */
+  cursor: pointer; /* Add a cursor pointer to indicate interactivity */
 }
 
 .menu {
@@ -80,6 +86,4 @@ header nav {
   }
 }
 
-/* ... (rest of your previously defined styles) */
-
-/* Additional styles for main content, footer, etc. */
+/* ... (rest of the previously defined styles) */
