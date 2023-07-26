@@ -103,21 +103,7 @@ header nav {
   }
 
   .menu {
-    display: flex;
-    position: absolute; /* Position the menu off-screen initially */
-    top: 0;
-    right: -100%; /* Move the menu off-screen to the right */
-    width: 70%; /* Set the width of the menu box */
-    max-width: 300px; /* Set a maximum width for the menu box */
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: right 0.3s ease; /* Add a smooth transition effect */
-  }
-
-  /* Remove bullets from the menu items on mobile */
-  .menu ul {
-    list-style: none;
+    display: none; /* Hide the menu by default */
   }
 
   /* ... (rest of the previously defined styles) ... */
@@ -126,7 +112,7 @@ header nav {
 /* Show the full menu on larger screens */
 @media screen and (min-width: 769px) {
   .menu {
-    flex-direction: row; /* Revert to 'display: flex;' for horizontal layout */
+    display: flex; /* Revert to 'display: flex;' for horizontal layout */
     justify-content: flex-end; /* Align the menu items to the right */
     align-items: center; /* Vertically center the menu items */
   }
@@ -146,5 +132,3 @@ header nav {
 }
 
 /* ... (rest of the previously defined styles) ... */
-
-/* ... (rest of the previously defined styles) */
