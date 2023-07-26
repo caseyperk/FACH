@@ -151,4 +151,7 @@ header nav {
   }
 }
 
-/* ... (rest of the previously defined styles) */
+.middle-layout {
+  width: 95%;
+  background-color: blue;
+}
