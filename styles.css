@@ -40,18 +40,6 @@ header nav {
   max-width: 100%; /* Ensure the logo doesn't exceed its container width */
 }
 
-.menu-icon {
-  font-size: 30px; /* Adjust the font size to change the hamburger icon size */
-  cursor: pointer; /* Add a cursor pointer to indicate interactivity */
-  margin-right: 10px; /* Add right margin to create space between the icon and adjacent elements */
-  display: none; /* Hide the hamburger icon by default */
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-}
-
 /* Move the logo to the top left */
 .logo {
   order: -1; /* Move the logo to the beginning of the flex container */
