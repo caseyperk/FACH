@@ -83,6 +83,7 @@ header nav {
   opacity: 1; /* Show the menu items */
   display: flex; /* Ensure the menu items are visible */
   flex-direction: column; /* Stack menu items vertically */
+  right: 0; /* Slide in the menu box from the right */
 }
 
 /* Show the hamburger icon on smaller screens */
@@ -101,7 +102,8 @@ header nav {
 
   .menu {
     list-style: none;
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute; /* Position the menu off-screen initially */
     top: 0;
     right: -100%; /* Move the menu off-screen to the right */
