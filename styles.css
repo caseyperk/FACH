@@ -81,7 +81,6 @@ header nav {
 /* Show the full menu when the hamburger icon is clicked */
 .menu.show {
   height: 100%;
-  width: 100%;
   opacity: 1; /* Show the menu items */
   display: flex; /* Ensure the menu items are visible */
   flex-direction: column; /* Stack menu items vertically on mobile */
