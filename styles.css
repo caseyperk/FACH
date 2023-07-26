@@ -92,4 +92,15 @@ header nav {
   }
 }
 
+/* Show the hamburger icon on smaller screens */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show the hamburger icon on mobile */
+  }
+
+  .menu {
+    display: none; /* Hide the full menu on mobile */
+  }
+}
+
 /* ... (rest of the previously defined styles) */
