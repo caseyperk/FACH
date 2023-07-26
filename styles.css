@@ -43,6 +43,7 @@ header nav {
 .menu-icon {
   font-size: 30px; /* Adjust the font size to change the hamburger icon size */
   cursor: pointer; /* Add a cursor pointer to indicate interactivity */
+  margin-right: 10px; /* Add right margin to create space between the icon and adjacent elements */
 }
 
 .menu {
