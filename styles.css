@@ -40,20 +40,39 @@ header nav {
   max-width: 100%; /* Ensure the logo doesn't exceed its container width */
 }
 
-/* Hamburger menu styles for smaller screens */
 .menu-icon {
   font-size: 30px; /* Adjust the font size to change the hamburger icon size */
   cursor: pointer; /* Add a cursor pointer to indicate interactivity */
   margin-right: 10px; /* Add right margin to create space between the icon and adjacent elements */
 }
 
-/* Hide the hamburger icon on larger screens */
-@media screen and (min-width: 769px) {
-  .menu-icon {
-    display: none;
-  }
+.menu {
+  list-style: none;
+  display: flex;
+}
 
-  /* Show the full menu on larger screens */
+/* Move the logo to the top left */
+.logo {
+  order: -1; /* Move the logo to the beginning of the flex container */
+}
+
+/* Hamburger menu styles for smaller screens */
+.menu {
+  flex-direction: column; /* Stack the menu items vertically */
+  display: none; /* Hide the full menu by default */
+}
+
+.menu li {
+  margin: 10px 0; /* Add spacing between the menu items */
+}
+
+/* Show the menu items on small screens when the 'show' class is applied */
+.menu.show {
+  display: flex;
+}
+
+/* Show the full menu on larger screens */
+@media screen and (min-width: 769px) {
   .menu {
     display: flex; /* Revert to 'display: flex;' for horizontal layout */
   }
@@ -65,6 +84,11 @@ header nav {
 
   .menu li:first-child {
     margin-left: auto; /* Move the logo to the left */
+  }
+
+  /* Hide the hamburger icon on larger screens */
+  .menu-icon {
+    display: none;
   }
 }
 
