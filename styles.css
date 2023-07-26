@@ -101,7 +101,6 @@ header nav {
   }
 
   .menu {
-    list-style: none;
     display: flex;
     flex-direction: column;
     position: absolute; /* Position the menu off-screen initially */
@@ -113,6 +112,11 @@ header nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: right 0.3s ease; /* Add a smooth transition effect */
+  }
+
+  /* Remove bullets from the menu items on mobile */
+  .menu ul {
+    list-style: none;
   }
 
   /* Show the full menu when the hamburger icon is clicked */
