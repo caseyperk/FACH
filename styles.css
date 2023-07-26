@@ -124,6 +124,7 @@ header nav {
 /* Show the full menu on larger screens */
 @media screen and (min-width: 769px) {
   .menu {
+    display: flex;
     flex-direction: row; /* Revert to 'display: flex;' for horizontal layout */
     justify-content: flex-end; /* Align the menu items to the right */
     align-items: center; /* Vertically center the menu items */
