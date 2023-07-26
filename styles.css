@@ -58,24 +58,28 @@ header nav {
   display: flex;
 }
 
-/* Hamburger menu styles for smaller screens */
+/* Show the hamburger icon on smaller screens */
 @media screen and (max-width: 768px) {
-  .menu {
-    flex-direction: column; /* Stack the menu items vertically */
-    display: none; /* Hide the full menu on mobile */
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: block; /* Show the hamburger icon on mobile */
   }
 
+  .menu {
+    list-style: none;
+    flex-direction: column;
+    display: none;
+  }
+
+  /* Show the full menu when the hamburger icon is clicked */
   .menu.show {
-    display: flex; /* Show the full menu when the hamburger icon is clicked */
+    display: flex;
   }
 
   .menu li {
-    margin: 10px 0; /* Add spacing between the menu items */
-  }
-
-  /* Show the hamburger icon on mobile */
-  .menu-icon {
-    display: block;
+    margin: 10px 0;
   }
 }
 
