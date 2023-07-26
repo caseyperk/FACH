@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Children's Hospitals Association</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav>
-        <div class="logo">
-          <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Children's Hospitals Association">
-        </div>
-        <div class="menu-icon">&#9776;</div> <!-- The hamburger icon (unicode character) -->
-        <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <div class="logo">
+        <!-- Your logo image goes here -->
+        <img src="path/to/your-logo.png" alt="Logo">
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <!-- Unicode character for the hamburger icon -->
+        ☰
+      </div>
+      <ul class="menu" id="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <!-- Your content goes here -->
+    <!-- Your main content goes here -->
+    <h1>Welcome to Children's Hospitals Association</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
   </main>
 
   <footer>
-    <p>&copy; 2023 Children's Hospitals Association. All rights reserved.</p>
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
   </footer>
 
   <script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.querySelector('.menu');
-
-    // Toggle the 'show' class on the menu when the icon is clicked
-    menuIcon.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
   </script>
 </body>
 </html>
