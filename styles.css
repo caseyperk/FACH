@@ -19,12 +19,14 @@ body {
 header {
   background-color: #fff;
   color: #333;
+  height: 80px; /* Adjust the header height as desired */
 }
 
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%; /* Align the logo and menu items vertically within the header */
 }
 
 .logo {
@@ -78,4 +80,6 @@ header nav {
   }
 }
 
-/* ... (rest of the previously defined styles) */
+/* ... (rest of your previously defined styles) */
+
+/* Additional styles for main content, footer, etc. */
