@@ -45,20 +45,6 @@ header nav {
   order: -1; /* Move the logo to the beginning of the flex container */
 }
 
-/* Hamburger menu styles for smaller screens */
-.menu {
-  flex-direction: column; /* Stack the menu items vertically */
-}
-
-.menu li {
-  margin: 10px 0; /* Add spacing between the menu items */
-}
-
-/* Show the menu items on small screens when the 'show' class is applied */
-.menu.show {
-  display: flex;
-}
-
 /* Show the hamburger icon on smaller screens */
 @media screen and (max-width: 768px) {
   .menu-icon {
