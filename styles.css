@@ -37,7 +37,7 @@ header nav {
 .logo img {
   width: 200px; /* Adjust the logo width as desired */
   height: auto; /* Let the height adjust proportionally to the width */
-  max-width: 100%; /* Ensure the logo doesnt exceed its container width */
+  max-width: 100%; /* Ensure the logo does not exceed its container width */
 }
 
 /* Move the logo to the top left */
