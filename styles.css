@@ -55,16 +55,16 @@ header nav {
 
   /* Show the full menu on larger screens */
   .menu {
-    flex-direction: column; /* Revert to horizontal layout */
+    display: flex; /* Revert to 'display: flex;' for horizontal layout */
   }
 
   .menu li {
     margin: 0 20px; /* Reset the margin for horizontal layout */
-    display: block; /* Show the menu items */
+    display: inline-block; /* Show the menu items inline */
   }
 
   .menu li:first-child {
-    margin-left: 0; /* Align the logo to the left */
+    margin-left: auto; /* Move the logo to the left */
   }
 }
 
