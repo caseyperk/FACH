@@ -44,6 +44,7 @@ header nav {
   font-size: 30px; /* Adjust the font size to change the hamburger icon size */
   cursor: pointer; /* Add a cursor pointer to indicate interactivity */
   margin-right: 10px; /* Add right margin to create space between the icon and adjacent elements */
+  display: none; /* Hide the hamburger icon by default */
 }
 
 .menu {
@@ -74,7 +75,7 @@ header nav {
 /* Show the full menu on larger screens */
 @media screen and (min-width: 769px) {
   .menu {
-    display: flex; /* Revert to 'display: flex;' for horizontal layout */
+    flex-direction: row; /* Revert to 'display: flex;' for horizontal layout */
   }
 
   .menu li {
