@@ -50,12 +50,20 @@ header nav {
   font-size: 30px; /* Adjust the font size to change the hamburger icon size */
   cursor: pointer; /* Add a cursor pointer to indicate interactivity */
   margin-right: 10px; /* Add right margin to create space between the icon and adjacent elements */
-  display: none; /* Hide the hamburger icon by default */
+  display: block; /* Show the hamburger icon on mobile */
+  transition: transform 0.3s ease; /* Add a smooth transition effect for the hamburger icon */
+}
+
+/* Rotate the hamburger icon when the menu is open */
+.menu.show .menu-icon {
+  transform: rotate(90deg);
 }
 
 .menu {
   list-style: none;
   display: flex;
+  transition: opacity 0.3s ease; /* Add a smooth fade-in/fade-out transition for the menu items */
+  opacity: 0; /* Hide the menu items by default */
 }
 
 .menu li a {
@@ -69,6 +77,12 @@ header nav {
 .menu li a:hover {
   color: #fff;
   background-color: #555;
+}
+
+/* Show the full menu when the hamburger icon is clicked */
+.menu.show {
+  opacity: 1; /* Show the menu items */
+  display: flex; /* Ensure the menu items are visible */
 }
 
 /* Show the hamburger icon on smaller screens */
