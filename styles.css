@@ -35,7 +35,7 @@ header nav {
 }
 
 .logo img {
-  width: 200px; /* Adjust the logo width as desired */
+  width: 400px; /* Adjust the logo width as desired */
   height: auto; /* Let the height adjust proportionally to the width */
   max-width: 100%; /* Ensure the logo does not exceed its container width */
 }
