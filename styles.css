@@ -161,7 +161,6 @@ main {
   height: 100%;
   background-image: linear-gradient( rgb(147, 160, 78), white );
   padding-top: 50px;
-  z-index: -1;
 }
 
 .middle-layout {
