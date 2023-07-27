@@ -30,7 +30,6 @@ header {
 }
 
 header nav {
-  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,6 +93,7 @@ header nav {
   display: flex; /* Ensure the menu items are visible */
   flex-direction: column; /* Stack menu items vertically on mobile */
   right: 0; /* Slide in the menu box from the right */
+  position: static;
 }
 
 /* Show the hamburger icon on smaller screens */
