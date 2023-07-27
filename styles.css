@@ -165,7 +165,7 @@ main {
 .middle-layout {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 20px auto 0;
   padding: 10px;
   background-color: #fff;
   border-radius: 25px 25px 0 0;
