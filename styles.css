@@ -34,6 +34,7 @@ header nav {
   justify-content: space-between;
   align-items: center;
   height: 100%; /* Align the logo and menu items vertically within the header */
+  position: static;
 }
 
 .logo {
