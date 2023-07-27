@@ -4,7 +4,7 @@ html, body {
   margin: 0;
 }
 
-body, h1, h2, h3, p, ul, li {
+body, header, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
 }
