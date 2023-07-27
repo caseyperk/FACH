@@ -154,8 +154,8 @@ header nav {
 .middle-layout {
   width: 90%;
   height: 100%;
-  background-color: blue;
+  background-color: white;
   margin: auto;
   padding: 10px;
-  box-shadow: 0 0 15px 0px #000;
+  box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2), 5px 0 5px rgba(0, 0, 0, 0.2);
 }
