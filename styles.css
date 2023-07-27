@@ -30,11 +30,11 @@ header {
 }
 
 header nav {
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%; /* Align the logo and menu items vertically within the header */
-  position: static;
 }
 
 .logo {
