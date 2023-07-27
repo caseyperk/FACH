@@ -157,7 +157,6 @@ header nav {
 }
 
 main {
-  margin-top: 50px;
   height: 100%;
   background-color: rgba(147, 160, 78, 1);
 }
@@ -165,7 +164,7 @@ main {
 .middle-layout {
   width: 90%;
   height: 100%;
-  margin: 0 auto 0 auto;
+  margin: 50px auto 0 auto;
   padding: 10px;
   background-color: #fff;
   border-radius: 25px 25px 0 0;
