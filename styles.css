@@ -151,6 +151,11 @@ header nav {
   }
 }
 
+main {
+  height 100%;
+  background-color: rgba(147, 160, 78, 1);
+}
+
 .middle-layout {
   width: 90%;
   height: 100%;
