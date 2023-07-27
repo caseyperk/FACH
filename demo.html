@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Children's Hospitals Association</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/10/highcharts.js"></script>
 </head>
 <body>
   <header>
@@ -34,6 +36,7 @@
     <div class="middle-layout">
     <h1>Welcome to Children's Hospitals Association</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
+      <div id="highcharts-demo" style="width:100%; height:400px;"></div>
   </div>
   </main>
 
@@ -48,5 +51,33 @@
       menu.classList.toggle("show");
     }
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('highcharts-demo', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+  </script>
+  
 </body>
 </html>
