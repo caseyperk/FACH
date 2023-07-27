@@ -156,6 +156,10 @@ main {
   background-color: rgba(147, 160, 78, 1);
 }
 
+main h1 {
+  margin-top: 0;
+}
+
 .middle-layout {
   width: 90%;
   height: 90%;
