@@ -26,7 +26,6 @@ header {
   color: #333;
   height: 80px; /* Adjust the header height as desired */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a box shadow for the 3D effect */
-  z-index: 9999;
 }
 
 header nav {
@@ -161,6 +160,7 @@ main {
   height: 100%;
   background-image: linear-gradient( rgb(147, 160, 78), white );
   padding-top: 50px;
+  z-index: -1;
 }
 
 .middle-layout {
