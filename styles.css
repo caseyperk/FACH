@@ -158,24 +158,14 @@ header nav {
 
 main {
   height: 100%;
-  background-image: linear-gradient(rgb(147, 160, 78), white);
-  position: relative; /* Add a position property */
-}
-
-main::before {
-  content: ""; /* Add content to the pseudo-element */
-  display: block;
-  height: 50px; /* Set the height to create the space between header and div */
-  position: absolute;
-  top: -50px; /* Adjust this value to control the amount of space */
-  left: 0;
-  right: 0;
+  background-image: linear-gradient( rgb(147, 160, 78), white );
+  padding-top: 50px;
 }
 
 .middle-layout {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 20px auto 0;
   padding: 10px;
   background-color: #fff;
   border-radius: 25px 25px 0 0;
