@@ -157,7 +157,7 @@ header nav {
 }
 
 main {
-  margin-top: 0 !important;
+  margin-top: -50px !important;
   height: 100%;
   background-color: rgba(147, 160, 78, 1);
 }
