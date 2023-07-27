@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Children's Hospitals Association</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+  <nav>
+    <div class="logo">
+      <!-- Your logo image goes here -->
+      <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Logo">
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <!-- Unicode character for the hamburger icon -->
+      ☰
+    </div>
+    <div class="menu" id="menu">
+      <!-- Close icon for mobile menu -->
+      <div class="close-icon" onclick="toggleMenu()">✕</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    <!-- Your main content goes here -->
+    <div class="middle-layout">
+    <h1>Welcome to Children's Hospitals Association</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
+  </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
