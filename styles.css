@@ -17,7 +17,6 @@ body {
 }
 
 header {
-  margin-bottom: 0;
   background-color: #fff;
   color: #333;
   height: 80px; /* Adjust the header height as desired */
