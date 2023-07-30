@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Children's Hospitals Association</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/10/highcharts.js"></script>
+</head>
+<body>
+  <header>
+  <nav>
+    <div class="logo">
+      <!-- Your logo image goes here -->
+      <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Logo">
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <!-- Unicode character for the hamburger icon -->
+      ☰
+    </div>
+    <div class="menu" id="menu">
+      <!-- Close icon for mobile menu -->
+      <div class="close-icon" onclick="toggleMenu()">✕</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    <!-- Your main content goes here -->
+    <div class="middle-layout">
+    <h1>Welcome to Children's Hospitals Association</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
+      <div id="mapContainer" style="min-width: 400px; height: 600px;"></div>
+  </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch(
+      "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/us-states/FL-12-florida-counties.json"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        Highcharts.mapChart("mapContainer", {
+          chart: {
+            map: data,
+          },
+          title: {
+            text: "Florida Counties Map",
+          },
+          subtitle: {
+            text: "Source map: " + data.source,
+          },
+          mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+              verticalAlign: "bottom",
+            },
+          },
+          series: [
+            {
+              name: "Counties",
+              data: data.features,
+              color: "#E0E0E0",
+              borderColor: "#777",
+              borderWidth: 0.5,
+              states: {
+                hover: {
+                  color: "#BADA55",
+                },
+              },
+              dataLabels: {
+                enabled: true,
+                format: "{point.properties.NAME}",
+              },
+            },
+          ],
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  });
+</script>
+  
+</body>
+</html>
