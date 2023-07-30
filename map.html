@@ -6,57 +6,53 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+  <!-- Include the Highcharts Map Collection -->
+  <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+  <!-- Include your JSON data file for the map -->
+  <script src="Florida_counties.json"></script>
 </head>
 <body>
-  <header>
-    <!-- Your header content goes here -->
-  </header>
-
-  <main>
-    <!-- Your main content goes here -->
-    <div class="middle-layout">
-      <h1>Welcome to Children's Hospitals Association</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
-      <div id="mapContainer" style="min-width: 400px; height: 600px;"></div>
-    </div>
-  </main>
-
-  <footer>
-    <!-- Your footer content goes here -->
-    &copy; 2023 Children's Hospitals Association
-  </footer>
+  <!-- Your existing HTML content goes here -->
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById("menu");
-      menu.classList.toggle("show");
-    }
-  </script>
-
-  <script>
+    // Your JavaScript code for rendering the map goes here
     document.addEventListener('DOMContentLoaded', async () => {
       try {
-        // Fetch the map data (Florida counties)
-        const response = await fetch('Florida_counties.json');
+        // Fetch the map data (Florida counties) from the loaded JSON file
+        const mapData = FLORIDA_COUNTIES; // This variable should be defined in Florida_counties.json
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch map data');
-        }
+        // Fetch the Medicaid regions data
+        const medicaidRegionsData = [
+          // ... (paste the JSON data here)
+        ];
 
-        const mapData = await response.json();
+        // Combine the map data and Medicaid regions data
+        const combinedData = mapData.features.map(county => {
+          const countyName = county.properties.NAME;
+          const medicaidRegion = medicaidRegionsData.find(region => region.COUNTY === countyName);
+          if (medicaidRegion) {
+            return { ...county, region: medicaidRegion['MEDICAID REGION'] };
+          }
+          return county;
+        });
 
         // Instantiate the map
         Highcharts.mapChart('mapContainer', {
           chart: {
             map: mapData
           },
+          // Your other map settings go here...
 
-          title: {
-            text: 'Florida Medicaid Regions'
-          },
-
-          // Add your map settings, color axis, series, etc., as shown in the previous examples
-
+          series: [{
+            name: 'Counties',
+            data: combinedData,
+            mapData: mapData,
+            joinBy: ['name', 'properties.NAME'],
+            tooltip: {
+              headerFormat: '',
+              pointFormat: '<b>{point.properties.NAME}</b><br>Medicaid Region: {point.region}'
+            }
+          }]
         });
 
       } catch (error) {
