@@ -6,13 +6,32 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/maps/modules/map.js"></script>
-  <!-- Include the Highcharts Map Collection -->
-  <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
-  <!-- Include your JSON data file for the map -->
-  <script src="Florida_counties.json"></script>
 </head>
 <body>
-  <!-- Your existing HTML content goes here -->
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+
+  <main>
+    <!-- Your main content goes here -->
+    <div class="middle-layout">
+      <h1>Welcome to Children's Hospitals Association</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
+      <div id="mapContainer" style="min-width: 400px; height: 600px;"></div>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
 
   <script>
     // Your JavaScript code for rendering the map goes here
