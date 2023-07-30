@@ -53,145 +53,83 @@
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        // Fetch the map data (Florida counties)
-        const mapData = await fetch(
-          'https://raw.githubusercontent.com/deldersveld/topojson/master/countries/us-states/FL-12-florida-counties.json'
-        ).then(response => response.json());
+    (async () => {
 
-        // Fetch the Medicaid regions data
-        const medicaidRegionsData = [
-  { "name": "Alachua", "region": "Region 3" },
-  { "name": "Baker", "region": "Region 4" },
-  { "name": "Bay", "region": "Region 2" },
-  { "name": "Bradford", "region": "Region 3" },
-  { "name": "Brevard", "region": "Region 7" },
-  { "name": "Broward", "region": "Region 10" },
-  { "name": "Calhoun", "region": "Region 2" },
-  { "name": "Charlotte", "region": "Region 8" },
-  { "name": "Citrus", "region": "Region 3" },
-  { "name": "Clay", "region": "Region 4" },
-  { "name": "Collier", "region": "Region 8" },
-  { "name": "Columbia", "region": "Region 3" },
-  { "name": "DeSoto", "region": "Region 8" },
-  { "name": "Dixie", "region": "Region 3" },
-  { "name": "Duval", "region": "Region 4" },
-  { "name": "Escambia", "region": "Region 1" },
-  { "name": "Flagler", "region": "Region 4" },
-  { "name": "Franklin", "region": "Region 2" },
-  { "name": "Gadsden", "region": "Region 2" },
-  { "name": "Gilchrist", "region": "Region 3" },
-  { "name": "Glades", "region": "Region 8" },
-  { "name": "Gulf", "region": "Region 2" },
-  { "name": "Hamilton", "region": "Region 3" },
-  { "name": "Hardee", "region": "Region 6" },
-  { "name": "Hendry", "region": "Region 8" },
-  { "name": "Hernando", "region": "Region 3" },
-  { "name": "Highlands", "region": "Region 6" },
-  { "name": "Hillsborough", "region": "Region 6" },
-  { "name": "Holmes", "region": "Region 2" },
-  { "name": "Indian River", "region": "Region 9" },
-  { "name": "Jackson", "region": "Region 2" },
-  { "name": "Jefferson", "region": "Region 2" },
-  { "name": "Lafayette", "region": "Region 3" },
-  { "name": "Lake", "region": "Region 3" },
-  { "name": "Lee", "region": "Region 8" },
-  { "name": "Leon", "region": "Region 2" },
-  { "name": "Levy", "region": "Region 3" },
-  { "name": "Liberty", "region": "Region 2" },
-  { "name": "Madison", "region": "Region 2" },
-  { "name": "Manatee", "region": "Region 6" },
-  { "name": "Marion", "region": "Region 3" },
-  { "name": "Martin", "region": "Region 9" },
-  { "name": "Miami-Dade", "region": "Region 11" },
-  { "name": "Monroe", "region": "Region 11" },
-  { "name": "Nassau", "region": "Region 4" },
-  { "name": "Okaloosa", "region": "Region 1" },
-  { "name": "Okeechobee", "region": "Region 9" },
-  { "name": "Orange", "region": "Region 7" },
-  { "name": "Osceola", "region": "Region 7" },
-  { "name": "Palm Beach", "region": "Region 9" },
-  { "name": "Pasco", "region": "Region 5" },
-  { "name": "Pinellas", "region": "Region 5" },
-  { "name": "Polk", "region": "Region 6" },
-  { "name": "Putnam", "region": "Region 3" },
-  { "name": "St. Johns", "region": "Region 4" },
-  { "name": "St. Lucie", "region": "Region 9" },
-  { "name": "Santa Rosa", "region": "Region 1" },
-  { "name": "Sarasota", "region": "Region 8" },
-  { "name": "Seminole", "region": "Region 7" },
-  { "name": "Sumter", "region": "Region 3" },
-  { "name": "Suwannee", "region": "Region 3" },
-  { "name": "Taylor", "region": "Region 2" },
-  { "name": "Union", "region": "Region 3" },
-  { "name": "Volusia", "region": "Region 4" },
-  { "name": "Wakulla", "region": "Region 2" },
-  { "name": "Walton", "region": "Region 1" },
-  { "name": "Washington", "region": "Region 2" }
+    const topology = await fetch(
+        'https://code.highcharts.com/mapdata/custom/europe.topo.json'
+    ).then(response => response.json());
 
-        ];
+    // Instantiate the map
+    Highcharts.mapChart('mapContainer', {
+        chart: {
+            map: topology,
+            spacingBottom: 20
+        },
 
-        // Combine the map data and Medicaid regions data
-        const combinedData = mapData.features.map(county => {
-          const countyName = county.properties.name;
-          const medicaidRegion = medicaidRegionsData.find(region => region.COUNTY === countyName);
-          if (medicaidRegion) {
-            return { ...county, region: medicaidRegion['MEDICAID REGION'] };
-          }
-          return county;
-        });
+        title: {
+            text: 'Europe time zones'
+        },
 
-        // Instantiate the map
-        Highcharts.mapChart('mapContainer', {
-          chart: {
-            map: mapData
-          },
-
-          title: {
-            text: 'Florida Medicaid Regions'
-          },
-
-          legend: {
-            title: {
-              text: 'Medicaid Region'
+        accessibility: {
+            series: {
+                descriptionFormat: 'Timezone {series.name} with {series.points.length} countries.'
+            },
+            point: {
+                valueDescriptionFormat: '{point.name}.'
             }
-          },
+        },
 
-          colorAxis: {
-            dataClasses: [
-              // Add data classes for your Medicaid regions here
-              { from: 1, to: 1, name: 'Region 1' },
-              { from: 2, to: 2, name: 'Region 2' },
-              { from: 3, to: 3, name: 'Region 3' },
-              { from: 4, to: 4, name: 'Region 4' },
-              { from: 5, to: 5, name: 'Region 5' },
-              { from: 6, to: 6, name: 'Region 6' },
-              { from: 7, to: 7, name: 'Region 7' },
-              { from: 8, to: 8, name: 'Region 8' },
-              { from: 9, to: 9, name: 'Region 9' },
-              { from: 10, to: 10, name: 'Region 10' },
-              { from: 11, to: 11, name: 'Region 11' },
-              // Add more data classes as needed
-            ]
-          },
+        legend: {
+            enabled: true
+        },
 
-          series: [{
-            name: 'Counties',
-            data: combinedData,
-            mapData: mapData,
-            joinBy: ['name', 'properties.name'],
-            tooltip: {
-              headerFormat: '',
-              pointFormat: '<b>{point.properties.name}</b><br>Medicaid Region: {point.region}'
+        plotOptions: {
+            map: {
+                allAreas: false,
+                joinBy: ['iso-a2', 'code'],
+                dataLabels: {
+                    enabled: true,
+                    color: '#FFFFFF',
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    // Only show dataLabels for areas with high label rank
+                    format: '{#if (lt point.properties.labelrank 5)}' +
+                        '{point.properties.iso-a2}' +
+                        '{/if}'
+                },
+                tooltip: {
+                    headerFormat: '',
+                    pointFormat: '{point.name}: <b>{series.name}</b>'
+                }
             }
-          }]
-        });
+        },
 
-      } catch (error) {
-        console.error('Error fetching map data:', error);
-      }
+        series: [{
+            name: 'UTC',
+            data: ['IE', 'IS', 'GB', 'PT'].map(code => ({ code }))
+        }, {
+            name: 'UTC + 1',
+            data: [
+                'NO', 'SE', 'DK', 'DE', 'NL', 'BE', 'LU', 'ES', 'FR', 'PL',
+                'CZ', 'AT', 'CH', 'LI', 'SK', 'HU', 'SI', 'IT', 'SM', 'HR',
+                'BA', 'YF', 'ME', 'AL', 'MK'
+            ].map(code => ({ code }))
+        }, {
+            name: 'UTC + 2',
+            data: [
+                'FI', 'EE', 'LV', 'LT', 'BY', 'UA', 'MD', 'RO', 'BG', 'GR',
+                'TR', 'CY'
+            ].map(code => ({ code }))
+        }, {
+            name: 'UTC + 3',
+            data: [{
+                code: 'RU'
+            }]
+        }]
     });
+
+})();
   </script>
 </body>
 </html>
