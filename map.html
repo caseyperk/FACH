@@ -5,46 +5,24 @@
   <title>Children's Hospitals Association</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/10/highcharts.js"></script>
   <script src="https://code.highcharts.com/maps/modules/map.js"></script>
   <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 </head>
 <body>
   <header>
-  <nav>
-    <div class="logo">
-      <!-- Your logo image goes here -->
-      <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Logo">
-    </div>
-    <div class="menu-icon" onclick="toggleMenu()">
-      <!-- Unicode character for the hamburger icon -->
-      ☰
-    </div>
-    <div class="menu" id="menu">
-      <!-- Close icon for mobile menu -->
-      <div class="close-icon" onclick="toggleMenu()">✕</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+    <!-- ... (header content here) ... -->
+  </header>
 
   <main>
-    <!-- Your main content goes here -->
     <div class="middle-layout">
-    <h1>Welcome to Children's Hospitals Association</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
+      <h1>Welcome to Children's Hospitals Association</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
       <div id="mapContainer" style="min-width: 400px; height: 600px;"></div>
-  </div>
+    </div>
   </main>
 
   <footer>
-    <!-- Your footer content goes here -->
-    &copy; 2023 Children's Hospitals Association
+    <!-- ... (footer content here) ... -->
   </footer>
 
   <script>
@@ -53,103 +31,75 @@
       menu.classList.toggle("show");
     }
   </script>
+
   <script>
-  document.addEventListener('DOMContentLoaded', async () => {
-  // Fetch the map data (Florida counties)
-  const mapData = await fetch(
-    'https://raw.githubusercontent.com/deldersveld/topojson/master/countries/us-states/FL-12-florida-counties.json'
-  ).then(response => response.json());
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Fetch the map data (Florida counties)
+        const response = await fetch(
+          'https://raw.githubusercontent.com/deldersveld/topojson/master/countries/us-states/FL-12-florida-counties.json'
+        );
 
-  // Fetch the Medicaid regions data
-  const medicaidRegionsData = [
-    // ... (paste the JSON data here)
-  ];
+        if (!response.ok) {
+          throw new Error('Failed to fetch map data');
+        }
 
-  // Combine the map data and Medicaid regions data
-  const combinedData = mapData.features.map(county => {
-    const countyName = county.properties.name;
-    const medicaidRegion = medicaidRegionsData.find(region => region.name === countyName);
-    if (medicaidRegion) {
-      return { ...county, region: medicaidRegion.region };
-    }
-    return county;
-  });
+        const mapData = await response.json();
 
-  // Instantiate the map
-  Highcharts.mapChart('mapContainer', {
-    chart: {
-      map: mapData
-    },
+        // Replace this comment with the actual JSON data of the Medicaid regions
+        const medicaidRegionsData = [
+          // ... (paste the JSON data here)
+        ];
 
-    title: {
-      text: 'Florida Medicaid Regions'
-    },
+        // Combine the map data and Medicaid regions data
+        const combinedData = mapData.features.map(county => {
+          const countyName = county.properties.name;
+          const medicaidRegion = medicaidRegionsData.find(region => region.name === countyName);
+          if (medicaidRegion) {
+            return { ...county, region: medicaidRegion.region };
+          }
+          return county;
+        });
 
-    legend: {
-      title: {
-        text: 'Medicaid Region'
+        // Instantiate the map
+        Highcharts.mapChart('mapContainer', {
+          chart: {
+            map: mapData
+          },
+
+          title: {
+            text: 'Florida Medicaid Regions'
+          },
+
+          legend: {
+            title: {
+              text: 'Medicaid Region'
+            }
+          },
+
+          colorAxis: {
+            dataClasses: [
+              // ... (color classes for Medicaid regions)
+            ]
+          },
+
+          series: [{
+            name: 'Counties',
+            data: combinedData,
+            mapData: mapData,
+            joinBy: ['name', 'properties.name'],
+            tooltip: {
+              headerFormat: '',
+              pointFormat: '<b>{point.properties.name}</b><br>Medicaid Region: {point.region}'
+            }
+          }]
+        });
+
+      } catch (error) {
+        console.error('Error fetching map data:', error);
       }
-    },
+    });
+  </script>
 
-    colorAxis: {
-      dataClasses: [{
-        to: 1,
-        name: 'Region 1'
-      }, {
-        from: 1,
-        to: 2,
-        name: 'Region 2'
-      }, {
-        from: 2,
-        to: 3,
-        name: 'Region 3'
-      }, {
-        from: 3,
-        to: 4,
-        name: 'Region 4'
-      }, {
-        from: 4,
-        to: 5,
-        name: 'Region 5'
-      }, {
-        from: 5,
-        to: 6,
-        name: 'Region 6'
-      }, {
-        from: 6,
-        to: 7,
-        name: 'Region 7'
-      }, {
-        from: 7,
-        to: 8,
-        name: 'Region 8'
-      }, {
-        from: 8,
-        to: 9,
-        name: 'Region 9'
-      }, {
-        from: 9,
-        to: 10,
-        name: 'Region 10'
-      }, {
-        from: 10,
-        name: 'Region 11'
-      }]
-    },
-
-    series: [{
-      name: 'Counties',
-      data: combinedData,
-      mapData: mapData,
-      joinBy: ['name', 'properties.name'],
-      tooltip: {
-        headerFormat: '',
-        pointFormat: '<b>{point.properties.name}</b><br>Medicaid Region: {point.region}'
-      }
-    }]
-  });
-});
-</script>
-  
 </body>
 </html>
