@@ -34,51 +34,120 @@
   </script>
 
     <script>
-    // Your JavaScript code for rendering the map goes here
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        // Fetch the map data (Florida counties) from the "Florida_counties.json" file
-        const response = await fetch('Florida_counties.json');
-        const FLORIDA_COUNTIES = await response.json();
+    (async () => {
 
-        // Instantiate the map
-        Highcharts.mapChart('mapContainer', {
-          chart: {
-            map: FLORIDA_COUNTIES
-          },
-          title: {
+    const topology = await fetch(
+        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties.json'
+    ).then(response => response.json());
+
+    // Instantiate the map
+    Highcharts.mapChart('mapContainer', {
+        chart: {
+            map: topology,
+            spacingBottom: 20
+        },
+
+        title: {
             text: 'Florida Counties'
-          },
-          subtitle: {
-            text: 'Source map: Florida_counties.json'
-          },
-          mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-              verticalAlign: 'bottom'
-            }
-          },
-          series: [{
-            name: 'Counties',
-            data: [],
-            mapData: FLORIDA_COUNTIES,
-            joinBy: 'GEO_ID', // Use the 'GEO_ID' property to join the data
-            states: {
-              hover: {
-                color: '#BADA55' // Custom color for the hover state
-              }
-            },
-            dataLabels: {
-              enabled: true,
-              format: '{point.properties.NAME}' // Show county names on the map
-            }
-          }]
-        });
+        },
+        subtitle: {
+        		text: 'Medicaid Regions'
+        },
 
-      } catch (error) {
-        console.error('Error fetching map data:', error);
-      }
+        accessibility: {
+            series: {
+                descriptionFormat: 'Map of Counties in Florida'
+            },
+            point: {
+                valueDescriptionFormat: '{point.name}.'
+            }
+        },
+
+        legend: {
+            enabled: true
+        },
+
+        plotOptions: {
+            map: {
+                allAreas: false,
+                joinBy: ['NAME', 'code'],
+                dataLabels: {
+                    enabled: true,
+                    color: '#FFFFFF',
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    // Only show dataLabels for areas with high label rank
+                    format: '{#if (lt point.properties.labelrank 5)}' +
+                        '{point.properties.NAME}' +
+                        '{/if}'
+                },
+                tooltip: {
+                    headerFormat: '',
+                    pointFormat: '{point.NAME}: <b>{series.NAME}</b>'
+                }
+            }
+        },
+
+        series: [{
+            name: 'Region 1',
+            data: ['Escambia', 'Santa Rosa', 'Okaloosa', 'Walton'].map(code => ({ code }))
+        }, {
+            name: 'Region 2',
+            data: [
+                'Holmes', 'Washington', 'Bay', 'Jackson', 'Calhoun', 'Gulf', 'Gadsden', 'Liberty', 'Franklin', 'Leon',
+                'Wakulla', 'Jefferson', 'Madison', 'Taylor'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 3',
+            data: [
+                'Hamilton', 'Suwannee', 'Lafayette', 'Dixie', 'Levy', 'Citrus', 'Hernando', 'Columbia', 'Gilchrist', 'Union',
+                'Bradford', 'Alachua', 'Putnam', 'Marion', 'Sumter', 'Lake'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 4',
+            data: [
+                'Baker', 'Nassau', 'Duval', 'Clay', 'St. Johns', 'Flagler', 'Volusia'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 5',
+            data: [
+                'Pasco', 'Pinellas'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 6',
+            data: [
+                'Hillsborough', 'Polk', 'Manatee', 'Hardee', 'Highlands'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 7',
+            data: [
+                'Seminole', 'Orange', 'Osceola', 'Brevard'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 8',
+            data: [
+                'Sarasota', 'DeSoto', 'Charlotte', 'Glades', 'Lee', 'Hendry', 'Collier'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 9',
+            data: [
+                'Indian River', 'Okeechobee', 'St. Lucie', 'Martin', 'Palm Beach'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 10',
+            data: [
+                'Broward'
+            ].map(code => ({ code }))
+        }, {
+            name: 'Region 11',
+            data: [
+                'Miami-Dade', 'Monroe'
+            ].map(code => ({ code }))
+        }]
     });
+
+})();
   </script>
 </body>
 </html>
