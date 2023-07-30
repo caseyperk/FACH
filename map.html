@@ -6,14 +6,33 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/maps/modules/map.js"></script>
-  <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 </head>
 <body>
   <header>
-    <!-- ... (header content here) ... -->
+    <nav>
+      <div class="logo">
+        <!-- Your logo image goes here -->
+        <img src="http://www.flchildrenshospitals.org/wp-content/uploads/2018/09/FACH-logo.png" alt="Logo">
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <!-- Unicode character for the hamburger icon -->
+        ☰
+      </div>
+      <div class="menu" id="menu">
+        <!-- Close icon for mobile menu -->
+        <div class="close-icon" onclick="toggleMenu()">✕</div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
+    <!-- Your main content goes here -->
     <div class="middle-layout">
       <h1>Welcome to Children's Hospitals Association</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
@@ -22,7 +41,8 @@
   </main>
 
   <footer>
-    <!-- ... (footer content here) ... -->
+    <!-- Your footer content goes here -->
+    &copy; 2023 Children's Hospitals Association
   </footer>
 
   <script>
@@ -36,27 +56,88 @@
     document.addEventListener('DOMContentLoaded', async () => {
       try {
         // Fetch the map data (Florida counties)
-        const response = await fetch(
+        const mapData = await fetch(
           'https://raw.githubusercontent.com/deldersveld/topojson/master/countries/us-states/FL-12-florida-counties.json'
-        );
+        ).then(response => response.json());
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch map data');
-        }
-
-        const mapData = await response.json();
-
-        // Replace this comment with the actual JSON data of the Medicaid regions
+        // Fetch the Medicaid regions data
         const medicaidRegionsData = [
-          // ... (paste the JSON data here)
+  { "name": "Alachua", "region": "Region 3" },
+  { "name": "Baker", "region": "Region 4" },
+  { "name": "Bay", "region": "Region 2" },
+  { "name": "Bradford", "region": "Region 3" },
+  { "name": "Brevard", "region": "Region 7" },
+  { "name": "Broward", "region": "Region 10" },
+  { "name": "Calhoun", "region": "Region 2" },
+  { "name": "Charlotte", "region": "Region 8" },
+  { "name": "Citrus", "region": "Region 3" },
+  { "name": "Clay", "region": "Region 4" },
+  { "name": "Collier", "region": "Region 8" },
+  { "name": "Columbia", "region": "Region 3" },
+  { "name": "DeSoto", "region": "Region 8" },
+  { "name": "Dixie", "region": "Region 3" },
+  { "name": "Duval", "region": "Region 4" },
+  { "name": "Escambia", "region": "Region 1" },
+  { "name": "Flagler", "region": "Region 4" },
+  { "name": "Franklin", "region": "Region 2" },
+  { "name": "Gadsden", "region": "Region 2" },
+  { "name": "Gilchrist", "region": "Region 3" },
+  { "name": "Glades", "region": "Region 8" },
+  { "name": "Gulf", "region": "Region 2" },
+  { "name": "Hamilton", "region": "Region 3" },
+  { "name": "Hardee", "region": "Region 6" },
+  { "name": "Hendry", "region": "Region 8" },
+  { "name": "Hernando", "region": "Region 3" },
+  { "name": "Highlands", "region": "Region 6" },
+  { "name": "Hillsborough", "region": "Region 6" },
+  { "name": "Holmes", "region": "Region 2" },
+  { "name": "Indian River", "region": "Region 9" },
+  { "name": "Jackson", "region": "Region 2" },
+  { "name": "Jefferson", "region": "Region 2" },
+  { "name": "Lafayette", "region": "Region 3" },
+  { "name": "Lake", "region": "Region 3" },
+  { "name": "Lee", "region": "Region 8" },
+  { "name": "Leon", "region": "Region 2" },
+  { "name": "Levy", "region": "Region 3" },
+  { "name": "Liberty", "region": "Region 2" },
+  { "name": "Madison", "region": "Region 2" },
+  { "name": "Manatee", "region": "Region 6" },
+  { "name": "Marion", "region": "Region 3" },
+  { "name": "Martin", "region": "Region 9" },
+  { "name": "Miami-Dade", "region": "Region 11" },
+  { "name": "Monroe", "region": "Region 11" },
+  { "name": "Nassau", "region": "Region 4" },
+  { "name": "Okaloosa", "region": "Region 1" },
+  { "name": "Okeechobee", "region": "Region 9" },
+  { "name": "Orange", "region": "Region 7" },
+  { "name": "Osceola", "region": "Region 7" },
+  { "name": "Palm Beach", "region": "Region 9" },
+  { "name": "Pasco", "region": "Region 5" },
+  { "name": "Pinellas", "region": "Region 5" },
+  { "name": "Polk", "region": "Region 6" },
+  { "name": "Putnam", "region": "Region 3" },
+  { "name": "St. Johns", "region": "Region 4" },
+  { "name": "St. Lucie", "region": "Region 9" },
+  { "name": "Santa Rosa", "region": "Region 1" },
+  { "name": "Sarasota", "region": "Region 8" },
+  { "name": "Seminole", "region": "Region 7" },
+  { "name": "Sumter", "region": "Region 3" },
+  { "name": "Suwannee", "region": "Region 3" },
+  { "name": "Taylor", "region": "Region 2" },
+  { "name": "Union", "region": "Region 3" },
+  { "name": "Volusia", "region": "Region 4" },
+  { "name": "Wakulla", "region": "Region 2" },
+  { "name": "Walton", "region": "Region 1" },
+  { "name": "Washington", "region": "Region 2" }
+
         ];
 
         // Combine the map data and Medicaid regions data
         const combinedData = mapData.features.map(county => {
           const countyName = county.properties.name;
-          const medicaidRegion = medicaidRegionsData.find(region => region.name === countyName);
+          const medicaidRegion = medicaidRegionsData.find(region => region.COUNTY === countyName);
           if (medicaidRegion) {
-            return { ...county, region: medicaidRegion.region };
+            return { ...county, region: medicaidRegion['MEDICAID REGION'] };
           }
           return county;
         });
@@ -79,7 +160,19 @@
 
           colorAxis: {
             dataClasses: [
-              // ... (color classes for Medicaid regions)
+              // Add data classes for your Medicaid regions here
+              { from: 1, to: 1, name: 'Region 1' },
+              { from: 2, to: 2, name: 'Region 2' },
+              { from: 3, to: 3, name: 'Region 3' },
+              { from: 4, to: 4, name: 'Region 4' },
+              { from: 5, to: 5, name: 'Region 5' },
+              { from: 6, to: 6, name: 'Region 6' },
+              { from: 7, to: 7, name: 'Region 7' },
+              { from: 8, to: 8, name: 'Region 8' },
+              { from: 9, to: 9, name: 'Region 9' },
+              { from: 10, to: 10, name: 'Region 10' },
+              { from: 11, to: 11, name: 'Region 11' },
+              // Add more data classes as needed
             ]
           },
 
@@ -100,6 +193,5 @@
       }
     });
   </script>
-
 </body>
 </html>
