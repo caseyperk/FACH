@@ -12141,6 +12141,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Joe DiMaggio Children’s Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1784,
+          26.0193
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
