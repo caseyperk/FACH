@@ -12201,6 +12201,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Studer Family Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.179100,
+          30.426030
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "UF Health Shands Children's Hospital"
       },
       "geometry": {
