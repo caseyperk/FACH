@@ -12165,6 +12165,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Palm Beach Children’s Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.06218,
+          26.75598
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
