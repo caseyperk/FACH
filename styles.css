@@ -163,7 +163,6 @@ main {
   min-height: 100vh; /* Set the minimum height to at least the viewport height */
   background-image: linear-gradient( rgb(147, 160, 78), white );
   padding-top: 50px;
-  margin: 0;
 }
 
 .middle-layout {
@@ -174,6 +173,7 @@ main {
   background-color: #fff;
   border-radius: 25px 25px 0 0;
   box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2), 5px 0 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0;
 }
 
 footer {
