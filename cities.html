@@ -56,11 +56,11 @@
     (async () => {
 
     const geojson = await fetch(
-        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_cities.json'
+        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_hospitals.json'
     ).then(response => response.json());
 
     // Instantiate the map
-    cities = Highcharts.geojson(geojson, 'mappoint')
+    hospitals = Highcharts.geojson(geojson, 'mappoint')
     
       Highcharts.mapChart('mapContainer', {
         chart: {
@@ -69,10 +69,10 @@
         },
 
         title: {
-            text: 'Florida Counties'
+            text: 'Medicaid Regions'
         },
         subtitle: {
-        		text: 'Medicaid Regions'
+        		text: 'Florida Counties'
         },
 
         accessibility: {
@@ -166,9 +166,9 @@
                 'Miami-Dade', 'Monroe'
             ].map(code => ({ code }))
         }, {
-            name: 'Cities',
+            name: 'Hospitals',
             type: 'mappoint',
-            data: cities,
+            data: hospitals,
             color: 'black',
             marker: {
                 radius: 2
