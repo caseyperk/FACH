@@ -12093,6 +12093,18 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Arnold Palmer Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3798,
+          28.5232
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
