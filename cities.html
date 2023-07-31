@@ -163,6 +163,22 @@
             data: [
                 'Miami-Dade', 'Monroe'
             ].map(code => ({ code }))
+        }, {
+            name: 'Cities',
+            type: 'mappoint',
+            data: cities,
+            color: 'black',
+            marker: {
+                radius: 2
+            },
+            dataLabels: {
+                align: 'left',
+                verticalAlign: 'middle'
+            },
+            animation: false,
+            tooltip: {
+                pointFormat: '{point.name}'
+            }
         }]
     });
 
