@@ -60,7 +60,9 @@
     ).then(response => response.json());
 
     // Instantiate the map
-    Highcharts.mapChart('mapContainer', {
+    cities = Highcharts.geojson(geojson, 'mappoint')
+    
+      Highcharts.mapChart('mapContainer', {
         chart: {
             map: topology,
             spacingBottom: 20
