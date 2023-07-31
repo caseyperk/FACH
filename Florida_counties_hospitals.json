@@ -12117,6 +12117,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Golisano Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.9131,
+          26.5071
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
