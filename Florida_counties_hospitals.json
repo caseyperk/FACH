@@ -12189,6 +12189,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "UF Health Shands Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3427,
+          29.6400
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
