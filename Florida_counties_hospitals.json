@@ -12153,6 +12153,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Nemours Children’s Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.2726,
+          28.3761
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
