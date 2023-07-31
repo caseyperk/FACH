@@ -36,7 +36,7 @@
     <div class="middle-layout">
       <h1>Welcome to Children's Hospitals Association</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
-      <div id="mapContainer" style="min-width: 100%; height: 100%;"></div>
+      <div id="mapContainer" style="max-width: 100%; max-height: 100%;"></div>
     </div>
   </main>
 
@@ -55,22 +55,24 @@
     <script>
     (async () => {
 
-    const topology = await fetch(
-        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties.json'
+    const geojson = await fetch(
+        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_hospitals.json'
     ).then(response => response.json());
 
     // Instantiate the map
-    Highcharts.mapChart('mapContainer', {
+    hospitals = Highcharts.geojson(geojson, 'mappoint')
+    
+      Highcharts.mapChart('mapContainer', {
         chart: {
-            map: topology,
+            map: geojson,
             spacingBottom: 20
         },
 
         title: {
-            text: 'Florida Counties'
+            text: 'Medicaid Regions'
         },
         subtitle: {
-        		text: 'Medicaid Regions'
+        		text: 'Florida Counties'
         },
 
         accessibility: {
@@ -163,6 +165,22 @@
             data: [
                 'Miami-Dade', 'Monroe'
             ].map(code => ({ code }))
+        }, {
+            name: 'Hospitals',
+            type: 'mappoint',
+            data: hospitals,
+            color: 'black',
+            marker: {
+                radius: 2
+            },
+            dataLabels: {
+                align: 'left',
+                verticalAlign: 'middle'
+            },
+            animation: false,
+            tooltip: {
+                pointFormat: '{point.name}'
+            }
         }]
     });
 
