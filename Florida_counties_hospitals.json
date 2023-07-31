@@ -12093,7 +12093,19 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Arnold Palmer Hospital"
+        "name": "AdventHealth for Children"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.3697,
+          28.5751
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
+        "name": "Arnold Palmer Hospital for Children"
       },
       "geometry": {
         "type": "Point",
