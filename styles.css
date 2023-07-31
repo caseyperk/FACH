@@ -163,6 +163,7 @@ main {
   min-height: 100vh; /* Set the minimum height to at least the viewport height */
   background-image: linear-gradient( rgb(147, 160, 78), white );
   padding-top: 50px;
+  margin: 0;
 }
 
 .middle-layout {
