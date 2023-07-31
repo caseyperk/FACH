@@ -12189,6 +12189,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "St. Joseph's Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4901,
+          27.9822
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "UF Health Shands Children's Hospital"
       },
       "geometry": {
