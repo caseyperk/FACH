@@ -12129,6 +12129,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "Holtz Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.2119,
+          25.7917
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "Wolfson Children's Hospital"
       },
       "geometry": {
