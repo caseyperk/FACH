@@ -100,7 +100,9 @@
                         fontWeight: 'bold'
                     },
                     // Only show dataLabels for areas with high label rank
-                    format: '{point.properties.NAME}'
+                    format: '{#if (lt point.properties.labelrank 5)}' +
+                        '{point.properties.NAME}' +
+                        '{/if}'
                 },
                 tooltip: {
                     headerFormat: '',
