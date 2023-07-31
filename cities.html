@@ -55,7 +55,7 @@
     <script>
     (async () => {
 
-    const topology = await fetch(
+    const geojson = await fetch(
         'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_cities.json'
     ).then(response => response.json());
 
@@ -64,7 +64,7 @@
     
       Highcharts.mapChart('mapContainer', {
         chart: {
-            map: topology,
+            map: geojson,
             spacingBottom: 20
         },
 
