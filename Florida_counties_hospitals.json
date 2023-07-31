@@ -12213,6 +12213,18 @@
     }, {
       "type": "Feature",
       "properties": {
+        "name": "TGH Children's Hospital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4587,
+          27.9383
+        ]
+      }
+    }, {
+      "type": "Feature",
+      "properties": {
         "name": "UF Health Shands Children's Hospital"
       },
       "geometry": {
