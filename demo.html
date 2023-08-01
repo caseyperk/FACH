@@ -56,55 +56,12 @@
 
     <script>
     // Create the chart
-Highcharts.chart('barContainer', {
+Highcharts.chart('container', {
     chart: {
-        type: 'bar',
-        events: {
-            drilldown: function (e) {
-                if (!e.seriesOptions) {
-
-                    var chart = this,
-                        drilldowns = {
-                            FACH: {
-                                name: 'FACH',
-                                data: [
-                                    ['AdventHealth for Children', 2],
-                                    ['Arnold Palmer', 3]
-                                ]
-                            },
-                            Other_Stand_Alones: {
-                                name: 'Other Stand Alones',
-                                data: [
-                                    ['Apples', 5],
-                                    ['Oranges', 7],
-                                    ['Bananas', 2]
-                                ]
-                            },
-                            Other: {
-                                name: 'Other',
-                                data: [
-                                    ['Toyota', 1],
-                                    ['Volkswagen', 2],
-                                    ['Opel', 5]
-                                ]
-                            }
-                        },
-                        series = drilldowns[e.point.name];
-
-                    // Show the loading label
-                    chart.showLoading('Simulating Ajax ...');
-
-                    setTimeout(function () {
-                        chart.hideLoading();
-                        chart.addSeriesAsDrilldown(e.point, series);
-                    }, 1000);
-                }
-
-            }
-        }
+        type: 'column'
     },
     title: {
-        text: 'Async drilldown'
+        text: 'Basic drilldown'
     },
     xAxis: {
         type: 'category'
@@ -124,25 +81,46 @@ Highcharts.chart('barContainer', {
     },
 
     series: [{
-        name: 'All Hospitals',
+        name: 'Things',
         colorByPoint: true,
         data: [{
-            name: 'FACH',
+            name: 'Animals',
             y: 5,
-            drilldown: true
+            drilldown: 'animals'
         }, {
-            name: 'Other Stand Alones',
+            name: 'Fruits',
             y: 2,
-            drilldown: true
+            drilldown: 'fruits'
         }, {
-            name: 'Other',
+            name: 'Cars',
             y: 4,
-            drilldown: false
+            drilldown: 'cars'
         }]
     }],
-
     drilldown: {
-        series: []
+        series: [{
+            id: 'animals',
+            data: [
+                ['Cats', 4],
+                ['Dogs', 2],
+                ['Cows', 1],
+                ['Sheep', 2],
+                ['Pigs', 1]
+            ]
+        }, {
+            id: 'fruits',
+            data: [
+                ['Apples', 4],
+                ['Oranges', 2]
+            ]
+        }, {
+            id: 'cars',
+            data: [
+                ['Toyota', 4],
+                ['Opel', 2],
+                ['Volkswagen', 2]
+            ]
+        }]
     }
 });
   </script>
