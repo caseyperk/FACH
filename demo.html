@@ -84,22 +84,22 @@ Highcharts.chart('barContainer', {
         name: 'Things',
         colorByPoint: true,
         data: [{
-            name: 'Animals',
+            name: 'FACH',
             y: 5,
-            drilldown: 'animals'
+            drilldown: 'fach'
         }, {
-            name: 'Fruits',
+            name: 'Other Stand Alones',
             y: 2,
-            drilldown: 'fruits'
+            drilldown: 'stands'
         }, {
-            name: 'Cars',
+            name: 'Other',
             y: 4,
-            drilldown: 'cars'
+            drilldown: 'other'
         }]
     }],
     drilldown: {
         series: [{
-            id: 'animals',
+            id: 'fach',
             data: [
                 ['Cats', 4],
                 ['Dogs', 2],
@@ -108,13 +108,13 @@ Highcharts.chart('barContainer', {
                 ['Pigs', 1]
             ]
         }, {
-            id: 'fruits',
+            id: 'stands',
             data: [
                 ['Apples', 4],
                 ['Oranges', 2]
             ]
         }, {
-            id: 'cars',
+            id: 'other',
             data: [
                 ['Toyota', 4],
                 ['Opel', 2],
