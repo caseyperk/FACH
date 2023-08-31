@@ -12201,7 +12201,8 @@
     }, {
       "type": "Feature",
       "properties": {
-        "name": "<img src='https://www.dlf.pt/dfpng/middlepng/440-4401466_studer-family-childrens-hospital-uf-logo-hd-png.png'>"
+        "name": "Studer Family Children's Hospital",
+        "logo": "<img src='https://www.dlf.pt/dfpng/middlepng/440-4401466_studer-family-childrens-hospital-uf-logo-hd-png.png'>"
       },
       "geometry": {
         "type": "Point",
