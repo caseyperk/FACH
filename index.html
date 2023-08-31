@@ -31,28 +31,9 @@
   </nav>
 </header>
 
-  <main>
-    <!-- Your main content goes here -->
-    <div class="middle-layout">
-      <h1>Welcome to Children's Hospitals Association</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor nulla vel massa aliquam, in tincidunt libero dapibus. Nulla facilisi.</p>
-      <div id="mapContainer" style="min-width: 100%; height: 80vh;"></div>
-    </div>
-  </main>
-
-  <footer>
-    <!-- Your footer content goes here -->
-    &copy; 2023 Children's Hospitals Association
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      var menu = document.getElementById("menu");
-      menu.classList.toggle("show");
-    }
-  </script>
-
-    <script>
+ &nbsp;
+<div id="mapContainer" style="min-width: 100%; height: 750px;"></div>
+<script>
     (async () => {
 
     const geojson = await fetch(
@@ -91,7 +72,7 @@
         },
 
         legend: {
-            enabled: true
+            enabled: false
         },
 
         plotOptions: {
@@ -187,7 +168,7 @@
             },
             animation: false,
             tooltip: {
-                pointFormat: '{point.name}'
+                pointFormat: '{point.properties.logo}'
             }
         }]
     });
