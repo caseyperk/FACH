@@ -12215,7 +12215,7 @@
       "type": "Feature",
       "properties": {
         "name": "TGH Children's Hospital",
-        "link": "<a href='/studer' style='text-decoration: none;'>TGH Children's Hospital</a>"
+        "link": "<a href='/tgh' style='text-decoration: none;'>TGH Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
