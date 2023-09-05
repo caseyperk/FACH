@@ -12202,7 +12202,7 @@
       "type": "Feature",
       "properties": {
         "name": "Studer Family Children's Hospital",
-        "link": "<a href='/studer'>Studer Family Children's Hospital</a>"
+        "link": "<a href='/studer' style='text-decoration: none'>Studer Family Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
