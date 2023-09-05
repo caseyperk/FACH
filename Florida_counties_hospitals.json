@@ -12094,7 +12094,7 @@
       "type": "Feature",
       "properties": {
         "name": "AdventHealth for Children",
-        "link": "<a href='/advent' style='text-decoration: none;'>AdventHealth for Children</a>"
+        "link": "<a href='/members/advent' style='text-decoration: none;'>AdventHealth for Children</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12107,7 +12107,7 @@
       "type": "Feature",
       "properties": {
         "name": "Arnold Palmer Hospital for Children",
-        "link": "<a href='/palmer' style='text-decoration: none;'>Arnold Palmer Hospital for Children</a>"
+        "link": "<a href='/members/palmer' style='text-decoration: none;'>Arnold Palmer Hospital for Children</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12120,7 +12120,7 @@
       "type": "Feature",
       "properties": {
         "name": "Golisano Children's Hospital",
-        "link": "<a href='/golisano' style='text-decoration: none;'>Golisano Children's Hospital</a>"
+        "link": "<a href='/members/golisano' style='text-decoration: none;'>Golisano Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12133,7 +12133,7 @@
       "type": "Feature",
       "properties": {
         "name": "Holtz Children's Hospital",
-        "link": "<a href='/holtz' style='text-decoration: none;'>Holtz Children's Hospital</a>"
+        "link": "<a href='/members/holtz' style='text-decoration: none;'>Holtz Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12146,7 +12146,7 @@
       "type": "Feature",
       "properties": {
         "name": "Joe DiMaggio Children’s Hospital",
-        "link": "<a href='/dimaggio' style='text-decoration: none;'>Joe DiMaggio Children’s Hospital</a>"
+        "link": "<a href='/members/dimaggio' style='text-decoration: none;'>Joe DiMaggio Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12159,7 +12159,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nemours Children’s Hospital",
-        "link": "<a href='/nemours' style='text-decoration: none;'>Nemours Children’s Hospital</a>"
+        "link": "<a href='/members/nemours' style='text-decoration: none;'>Nemours Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12172,7 +12172,7 @@
       "type": "Feature",
       "properties": {
         "name": "Palm Beach Children’s Hospital",
-        "link": "<a href='/pbch' style='text-decoration: none;'>Palm Beach Children’s Hospital</a>"
+        "link": "<a href='/members/pbch' style='text-decoration: none;'>Palm Beach Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12185,7 +12185,7 @@
       "type": "Feature",
       "properties": {
         "name": "Salah Foundation Children’s Hospital",
-        "link": "<a href='/salah' style='text-decoration: none;'>Salah Foundation Children’s Hospital</a>"
+        "link": "<a href='/members/salah' style='text-decoration: none;'>Salah Foundation Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12198,7 +12198,7 @@
       "type": "Feature",
       "properties": {
         "name": "St. Joseph's Children's Hospital",
-        "link": "<a href='/stjosephs' style='text-decoration: none;'>St. Joseph's Children's Hospital</a>"
+        "link": "<a href='/members/stjosephs' style='text-decoration: none;'>St. Joseph's Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12211,7 +12211,7 @@
       "type": "Feature",
       "properties": {
         "name": "Studer Family Children's Hospital",
-        "link": "<a href='/studer' style='text-decoration: none;'>Studer Family Children's Hospital</a>"
+        "link": "<a href='/members/studer' style='text-decoration: none;'>Studer Family Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12224,7 +12224,7 @@
       "type": "Feature",
       "properties": {
         "name": "TGH Children's Hospital",
-        "link": "<a href='/tgh' style='text-decoration: none;'>TGH Children's Hospital</a>"
+        "link": "<a href='/members/tgh' style='text-decoration: none;'>TGH Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12237,7 +12237,7 @@
       "type": "Feature",
       "properties": {
         "name": "UF Health Shands Children's Hospital",
-        "link": "<a href='/shands' style='text-decoration: none;'>UF Health Shands Children's Hospital</a>"
+        "link": "<a href='/members/shands' style='text-decoration: none;'>UF Health Shands Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12250,7 +12250,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wolfson Children's Hospital",
-        "link": "<a href='/wolfson' style='text-decoration: none;'>Wolfson Children's Hospital</a>"
+        "link": "<a href='/members/wolfson' style='text-decoration: none;'>Wolfson Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
