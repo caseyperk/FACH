@@ -12249,7 +12249,8 @@
     }, {
       "type": "Feature",
       "properties": {
-        "name": "Wolfson Children's Hospital"
+        "name": "Wolfson Children's Hospital",
+        "link": "<a href='/wolfson' style='text-decoration: none;'>Wolfson Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
