@@ -12093,7 +12093,8 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "AdventHealth for Children"
+        "name": "AdventHealth for Children",
+        "link": "<a href='/advent' style='text-decoration: none;'>AdventHealth for Children</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12105,7 +12106,8 @@
     }, {
       "type": "Feature",
       "properties": {
-        "name": "Arnold Palmer Hospital for Children"
+        "name": "Arnold Palmer Hospital for Children",
+        "link": "<a href='/palmer' style='text-decoration: none;'>Arnold Palmer Hospital for Children</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12117,7 +12119,8 @@
     }, {
       "type": "Feature",
       "properties": {
-        "name": "Golisano Children's Hospital"
+        "name": "Golisano Children's Hospital",
+        "link": "<a href='/golisano' style='text-decoration: none;'>Golisano Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
@@ -12129,7 +12132,8 @@
     }, {
       "type": "Feature",
       "properties": {
-        "name": "Holtz Children's Hospital"
+        "name": "Holtz Children's Hospital",
+        "link": "<a href='/holtz' style='text-decoration: none;'>Holtz Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
