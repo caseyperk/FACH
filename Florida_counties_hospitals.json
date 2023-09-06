@@ -12185,7 +12185,7 @@
       "type": "Feature",
       "properties": {
         "name": "Salah Foundation Children’s Hospital",
-        "link": "<a href='/members/salah' style='text-decoration: none;'>Salah Foundation Children’s Hospital</a>"
+        "link": "<a href='/members/salahfoundation' style='text-decoration: none;'>Salah Foundation Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
