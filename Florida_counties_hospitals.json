@@ -12120,7 +12120,7 @@
       "type": "Feature",
       "properties": {
         "name": "Golisano Children's Hospital",
-        "link": "<a href='/members/golisano' style='text-decoration: none;'>Golisano Children's Hospital</a>"
+        "link": "<a href='/members/golisanoch' style='text-decoration: none;'>Golisano Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
