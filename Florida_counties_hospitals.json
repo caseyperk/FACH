@@ -12094,7 +12094,7 @@
       "type": "Feature",
       "properties": {
         "name": "AdventHealth for Children",
-        "link": "<a href='/members/advent' style='text-decoration: none;'>AdventHealth for Children</a>"
+        "link": "<a href='/members/adventhealth' style='text-decoration: none;'>AdventHealth for Children</a>"
       },
       "geometry": {
         "type": "Point",
