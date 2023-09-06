@@ -12146,7 +12146,7 @@
       "type": "Feature",
       "properties": {
         "name": "Joe DiMaggio Children’s Hospital",
-        "link": "<a href='/members/dimaggio' style='text-decoration: none;'>Joe DiMaggio Children’s Hospital</a>"
+        "link": "<a href='/members/joedimaggio' style='text-decoration: none;'>Joe DiMaggio Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
