@@ -12237,7 +12237,7 @@
       "type": "Feature",
       "properties": {
         "name": "UF Health Shands Children's Hospital",
-        "link": "<a href='/members/shands' style='text-decoration: none;'>UF Health Shands Children's Hospital</a>"
+        "link": "<a href='/members/ufshands' style='text-decoration: none;'>UF Health Shands Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
