@@ -12172,7 +12172,7 @@
       "type": "Feature",
       "properties": {
         "name": "Palm Beach Children’s Hospital",
-        "link": "<a href='/members/pbch' style='text-decoration: none;'>Palm Beach Children’s Hospital</a>"
+        "link": "<a href='/members/palmbeach' style='text-decoration: none;'>Palm Beach Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
