@@ -12250,7 +12250,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wolfson Children's Hospital",
-        "link": "<a href='/members/wolfson' style='text-decoration: none;'>Wolfson Children's Hospital</a>"
+        "link": "<a href='/members/wolfsonch' style='text-decoration: none;'>Wolfson Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
