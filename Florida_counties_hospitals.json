@@ -12107,7 +12107,7 @@
       "type": "Feature",
       "properties": {
         "name": "Arnold Palmer Hospital for Children",
-        "link": "<a href='/members/palmer' style='text-decoration: none;'>Arnold Palmer Hospital for Children</a>"
+        "link": "<a href='/members/apalmer' style='text-decoration: none;'>Arnold Palmer Hospital for Children</a>"
       },
       "geometry": {
         "type": "Point",
