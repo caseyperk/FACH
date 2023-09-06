@@ -12224,7 +12224,7 @@
       "type": "Feature",
       "properties": {
         "name": "TGH Children's Hospital",
-        "link": "<a href='/members/tgh' style='text-decoration: none;'>TGH Children's Hospital</a>"
+        "link": "<a href='/members/tampageneral' style='text-decoration: none;'>TGH Children's Hospital</a>"
       },
       "geometry": {
         "type": "Point",
