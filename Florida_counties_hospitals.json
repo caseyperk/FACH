@@ -12159,7 +12159,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nemours Children’s Hospital",
-        "link": "<a href='/members/nemours' style='text-decoration: none;'>Nemours Children’s Hospital</a>"
+        "link": "<a href='/members/nemoursch' style='text-decoration: none;'>Nemours Children’s Hospital</a>"
       },
       "geometry": {
         "type": "Point",
