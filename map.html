@@ -47,6 +47,7 @@
 
 
 <script>
+     document.addEventListener('DOMContentLoaded', () => {
     (async () => {
         // Load the original GeoJSON data
         const geojson = await fetch(
@@ -203,6 +204,7 @@
             }]
         });
     })();
+});
   </script>
 </body>
 </html>
