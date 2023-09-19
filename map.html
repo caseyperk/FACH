@@ -46,145 +46,156 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById("menu");
-      menu.classList.toggle("show");
-    }
-  </script>
-
-    <script>
     (async () => {
+        // Load the original GeoJSON data
+        const geojson = await fetch(
+            'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_hospitals.json'
+        ).then(response => response.json());
 
-    const geojson = await fetch(
-        'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_hospitals.json'
-    ).then(response => response.json());
+    // Define a mapping from counties to regions
+    const countyToRegion = {
+        'Escambia': 'Region 1',
+        'Santa Rosa': 'Region 1',
+        'Okaloosa': 'Region 1',
+        'Walton': 'Region 1',
+        'Holmes': 'Region 2',
+        'Washington': 'Region 2',
+        'Bay': 'Region 2',
+        'Jackson': 'Region 2',
+        'Calhoun': 'Region 2',
+        'Gulf': 'Region 2',
+        'Gadsden': 'Region 2',
+        'Liberty': 'Region 2',
+        'Franklin': 'Region 2',
+        'Leon': 'Region 2',
+        'Wakulla': 'Region 2',
+        'Jefferson': 'Region 2',
+        'Madison': 'Region 2',
+        'Taylor': 'Region 2',
+        'Hamilton': 'Region 3',
+        'Suwannee': 'Region 3',
+        'Lafayette': 'Region 3',
+        'Dixie': 'Region 3',
+        'Columbia': 'Region 3',
+        'Gilchrist': 'Region 3',
+        'Levy': 'Region 3',
+        'Union': 'Region 3',
+        'Bradford': 'Region 3',
+        'Alachua': 'Region 3',
+        'Putnam': 'Region 3',
+        'Marion': 'Region 3',
+        'Citrus': 'Region 3',
+        'Hernando': 'Region 3',
+        'Sumter': 'Region 3',
+        'Lake': 'Region 3',
+        'Baker': 'Region 4',
+        'Nassau': 'Region 4',
+        'Duval': 'Region 4',
+        'Clay': 'Region 4',
+        'St. Johns': 'Region 4',
+        'Flagler': 'Region 4',
+        'Volusia': 'Region 4',
+        'Pasco': 'Region 5',
+        'Pinellas': 'Region 5',
+        'Hillsborough': 'Region 6',
+        'Polk': 'Region 6',
+        'Manatee': 'Region 6',
+        'Hardee': 'Region 6',
+        'Highlands': 'Region 6',
+        'Seminole': 'Region 7',
+        'Orange': 'Region 7',
+        'Osceola': 'Region 7',
+        'Brevard': 'Region 7',
+        'Sarasota': 'Region 8',
+        'DeSoto': 'Region 8',
+        'Glades': 'Region 8',
+        'Charlotte': 'Region 8',
+        'Lee': 'Region 8',
+        'Hendry': 'Region 8',
+        'Collier': 'Region 8',
+        'Indian River': 'Region 9',
+        'Okeechobee': 'Region 9',
+        'St. Lucie': 'Region 9',
+        'Martin': 'Region 9',
+        'Palm Beach': 'Region 9',
+        'Broward': 'Region 10',
+        'Miami-Dade': 'Region 11',
+        'Monroe': 'Region 11'
+        
+    };
 
-    // Instantiate the map
-    hospitals = Highcharts.geojson(geojson, 'mappoint')
-    
-      Highcharts.mapChart('mapContainer', {
-        chart: {
-            map: geojson,
-            spacingBottom: 20
-        },
+     // Initialize an object to hold merged region geometries
+        const mergedRegions = {};
 
-        title: {
-            text: 'Medicaid Regions'
-        },
-        subtitle: {
-        		text: 'Florida Counties'
-        },
+        // Iterate through each feature in the original GeoJSON
+        geojson.features.forEach(feature => {
+            const countyName = feature.properties.NAME;
+            const regionName = countyToRegion[countyName];
 
-        accessibility: {
-            series: {
-                descriptionFormat: 'Map of Counties in Florida'
-            },
-            point: {
-                valueDescriptionFormat: '{point.NAME}.'
+            // If the region doesn't exist in mergedRegions, create it
+            if (!mergedRegions[regionName]) {
+                mergedRegions[regionName] = {
+                    type: 'Feature',
+                    properties: { NAME: regionName },
+                    geometry: {
+                        type: 'MultiPolygon',
+                        coordinates: [],
+                    },
+                };
             }
-        },
 
-        legend: {
-            enabled: true
-        },
+            // Merge the county's geometry into the region
+            mergedRegions[regionName].geometry.coordinates.push(...feature.geometry.coordinates);
+        });
 
-        plotOptions: {
-            map: {
-                allAreas: false,
-                joinBy: ['NAME', 'code'],
+        // Convert the merged regions object into an array
+        const mergedRegionsArray = Object.values(mergedRegions);
+
+        // Instantiate the map
+        Highcharts.mapChart('mapContainer', {
+            title: {
+                text: 'Medicaid Regions'
+            },
+            subtitle: {
+                text: 'Florida Counties'
+            },
+            mapNavigation: {
+                enabled: true,
+                enableDoubleClickZoomTo: false,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+            accessibility: {
+                series: {
+                    descriptionFormat: 'Map of Counties in Florida'
+                },
+                point: {
+                    valueDescriptionFormat: '{point.NAME}.'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            series: [{
+                name: 'Medicaid Regions',
+                mapData: {
+                    features: mergedRegionsArray
+                },
+                borderColor: 'black', // Add a border color for the regions
+                borderWidth: 1, // Add a border width for the regions
+                color: 'transparent', // Set the fill color of the regions to transparent
                 dataLabels: {
                     enabled: true,
-                    color: '#FFFFFF',
-                    style: {
-                        fontWeight: 'bold'
-                    },
-                    // Only show dataLabels for areas with high label rank
-                    format: '{#if (lt point.properties.labelrank 5)}' +
-                        '{point.properties.NAME}' +
-                        '{/if}'
+                    allowOverlap: true,
+                    format: '{point.properties.NAME}',
                 },
                 tooltip: {
-                    headerFormat: '',
-                    pointFormat: '{point.NAME}: <b>{series.name}</b>'
-                }
-            }
-        },
-
-        series: [{
-            name: 'Region 1',
-            data: ['Escambia', 'Santa Rosa', 'Okaloosa', 'Walton'].map(code => ({ code }))
-        }, {
-            name: 'Region 2',
-            data: [
-                'Holmes', 'Washington', 'Bay', 'Jackson', 'Calhoun', 'Gulf', 'Gadsden', 'Liberty', 'Franklin', 'Leon',
-                'Wakulla', 'Jefferson', 'Madison', 'Taylor'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 3',
-            data: [
-                'Hamilton', 'Suwannee', 'Lafayette', 'Dixie', 'Levy', 'Citrus', 'Hernando', 'Columbia', 'Gilchrist', 'Union',
-                'Bradford', 'Alachua', 'Putnam', 'Marion', 'Sumter', 'Lake'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 4',
-            data: [
-                'Baker', 'Nassau', 'Duval', 'Clay', 'St. Johns', 'Flagler', 'Volusia'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 5',
-            data: [
-                'Pasco', 'Pinellas'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 6',
-            data: [
-                'Hillsborough', 'Polk', 'Manatee', 'Hardee', 'Highlands'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 7',
-            data: [
-                'Seminole', 'Orange', 'Osceola', 'Brevard'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 8',
-            data: [
-                'Sarasota', 'DeSoto', 'Charlotte', 'Glades', 'Lee', 'Hendry', 'Collier'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 9',
-            data: [
-                'Indian River', 'Okeechobee', 'St. Lucie', 'Martin', 'Palm Beach'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 10',
-            data: [
-                'Broward'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Region 11',
-            data: [
-                'Miami-Dade', 'Monroe'
-            ].map(code => ({ code }))
-        }, {
-            name: 'Hospitals',
-            type: 'mappoint',
-            data: hospitals,
-            color: 'black',
-            marker: {
-                radius: 2
-            },
-            dataLabels: {
-                align: 'left',
-                verticalAlign: 'middle'
-            },
-            animation: false,
-            tooltip: {
-                pointFormat: '{point.name}'
-            }
-        }]
-    });
-
-})();
+                    pointFormat: '{point.properties.NAME}',
+                },
+            }]
+        });
+    })();
   </script>
 </body>
 </html>
