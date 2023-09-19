@@ -45,6 +45,7 @@
     &copy; 2023 Children's Hospitals Association
   </footer>
 
+
 <script>
     (async () => {
         // Load the original GeoJSON data
@@ -52,12 +53,78 @@
             'https://raw.githubusercontent.com/caseyperk/FACH/main/Florida_counties_hospitals.json'
         ).then(response => response.json());
 
+        console.log(geojson);
+
+
     // Define a mapping from counties to regions
     const countyToRegion = {
         'Escambia': 'Region 1',
         'Santa Rosa': 'Region 1',
         'Okaloosa': 'Region 1',
-        'Walton': 'Region 1'       
+        'Walton': 'Region 1',
+        'Holmes': 'Region 2',
+        'Washington': 'Region 2',
+        'Bay': 'Region 2',
+        'Jackson': 'Region 2',
+        'Calhoun': 'Region 2',
+        'Gulf': 'Region 2',
+        'Gadsden': 'Region 2',
+        'Liberty': 'Region 2',
+        'Franklin': 'Region 2',
+        'Leon': 'Region 2',
+        'Wakulla': 'Region 2',
+        'Jefferson': 'Region 2',
+        'Madison': 'Region 2',
+        'Taylor': 'Region 2',
+        'Hamilton': 'Region 3',
+        'Suwannee': 'Region 3',
+        'Lafayette': 'Region 3',
+        'Dixie': 'Region 3',
+        'Columbia': 'Region 3',
+        'Gilchrist': 'Region 3',
+        'Levy': 'Region 3',
+        'Union': 'Region 3',
+        'Bradford': 'Region 3',
+        'Alachua': 'Region 3',
+        'Putnam': 'Region 3',
+        'Marion': 'Region 3',
+        'Citrus': 'Region 3',
+        'Hernando': 'Region 3',
+        'Sumter': 'Region 3',
+        'Lake': 'Region 3',
+        'Baker': 'Region 4',
+        'Nassau': 'Region 4',
+        'Duval': 'Region 4',
+        'Clay': 'Region 4',
+        'St. Johns': 'Region 4',
+        'Flagler': 'Region 4',
+        'Volusia': 'Region 4',
+        'Pasco': 'Region 5',
+        'Pinellas': 'Region 5',
+        'Hillsborough': 'Region 6',
+        'Polk': 'Region 6',
+        'Manatee': 'Region 6',
+        'Hardee': 'Region 6',
+        'Highlands': 'Region 6',
+        'Seminole': 'Region 7',
+        'Orange': 'Region 7',
+        'Osceola': 'Region 7',
+        'Brevard': 'Region 7',
+        'Sarasota': 'Region 8',
+        'DeSoto': 'Region 8',
+        'Glades': 'Region 8',
+        'Charlotte': 'Region 8',
+        'Lee': 'Region 8',
+        'Hendry': 'Region 8',
+        'Collier': 'Region 8',
+        'Indian River': 'Region 9',
+        'Okeechobee': 'Region 9',
+        'St. Lucie': 'Region 9',
+        'Martin': 'Region 9',
+        'Palm Beach': 'Region 9',
+        'Broward': 'Region 10',
+        'Miami-Dade': 'Region 11',
+        'Monroe': 'Region 11'
         
     };
 
@@ -87,6 +154,9 @@
 
         // Convert the merged regions object into an array
         const mergedRegionsArray = Object.values(mergedRegions);
+
+        console.log(mergedRegionsArray);
+
 
         // Instantiate the map
         Highcharts.mapChart('mapContainer', {
